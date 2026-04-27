@@ -19,10 +19,17 @@ module tt_um_example (
   // All output pins must be assigned. If not used, assign to 0.
   wire [15:0] product;
 
+wire [15:0] product;
+
 pm32 my_mult (
     .a(ui_in),
     .b(uio_in),
     .p(product)
+);
+
+assign uo_out = product[7:0];
+assign uio_out = product[15:8];
+assign uio_oe = 8'b11111111;
 );
 
 assign uo_out = product[7:0];
